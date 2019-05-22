@@ -22,7 +22,7 @@
 
           
 
-                if(isset($_FILES)){
+                if(isset($_FILES)){ //om vi skickar med en fil hamnar den är i superglobala variabeln
                         $check = true; 
 
                         if(@$_FILES['books_file']['type'] !== 'text/csv'){
@@ -30,10 +30,11 @@
                         }
 
                         if($check) {
-                                $path = realpath('./'); //Funktion för att ta reda på den faktiska sökvägen för den upladdade filen
-                                echo $path . '/uploaded_files/';
 
-                                move_uploaded_file('test.csv', "$path"); // Anges inom citatecken om det t.ex. finns mellanslag i sökvägen.
+                                $file_id = uniqid(); 
+                                $path = realpath('./') . '/uploaded_files/' . $file_id; //Funktion för att ta reda på den faktiska sökvägen för den upladdade filen
+
+                                move_uploaded_file($_FILES['books_file']['tmp_name'], "$path"); // Anges inom citatecken om det t.ex. finns mellanslag i sökvägen.
                         }
                 }
 
