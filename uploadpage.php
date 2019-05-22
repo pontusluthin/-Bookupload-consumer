@@ -12,12 +12,38 @@
 
         <h1>Upload CSV File</h1>
 
-        <form method="POST">
-                <input type="file" name="csv">
+        <form method="POST" enctype="multipart/form-data">
+                <input type="file" name="books_file">
                 <button type="submit" class="btn">Submit</button>
         </form>
+        <h2>Files:</h2>
+       
+                <?php
 
-        <a href="startpage.php"><button type="button" class="btn btn-lg returnBtn">Go back</button>
+          
+
+                if(isset($_FILES)){
+                        $check = true; 
+
+                        if(@$_FILES['books_file']['type'] !== 'text/csv'){
+                                $check = false; 
+                        }
+
+                        if($check) {
+                                $path = realpath('./'); //Funktion för att ta reda på den faktiska sökvägen för den upladdade filen
+                                echo $path . '/uploaded_files/';
+
+                                move_uploaded_file('test.csv', "$path"); // Anges inom citatecken om det t.ex. finns mellanslag i sökvägen.
+                        }
+                }
+
+
+                ?>
+       
+        <a href="startpage.php"><button type="button" class="btn btn-lg returnBtn">Go back</button></a>
+
+
+    
 
 </body>
 
@@ -26,3 +52,4 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </html>
+
