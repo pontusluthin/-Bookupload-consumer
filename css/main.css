@@ -29,3 +29,6 @@ button:hover {
           box-shadow: 0rem 2rem 2rem rgba(0, 0, 0, 0.25);
   -webkit-transition: 0.5s;
   transition: 0.5s; }
+
+.returnBtn {
+  margin-top: 15rem; }
