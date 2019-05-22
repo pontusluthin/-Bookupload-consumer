@@ -9,6 +9,13 @@
         <title>Book Uploadpage</title>
 </head>
 <body>
+
+        <h1>Upload CSV File</h1>
+
+        <form method="POST">
+                <input type="file" name="csv">
+                <button type="submit" class="btn">Submit</button>
+        </form>
     
 </body>
 
