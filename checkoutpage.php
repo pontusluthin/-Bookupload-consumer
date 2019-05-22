@@ -64,7 +64,7 @@
 
         </section>
 
-        <a href="uploadpage.php"><button type="button" class="btn btn-lg returnBtn">Go back</button></a>
+        <a href="uploadpage.php"><button type="button" class="btn btn-lg returnBtn">Go back</button></a><a href="recievepage.php"><button type="button" class="btn btn-lg nextBtn">Next page</button></a>
     
 </body>
 

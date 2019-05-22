@@ -35,8 +35,10 @@ button:hover {
 .filesTitle {
   margin-top: 3rem; }
 
-.returnBtn {
-  margin-top: 5rem; }
+.returnBtn, .nextBtn {
+  margin-top: 5rem;
+  margin-left: 3rem;
+  margin-right: 3rem; }
 
 .checkoutTitle {
   margin-top: 3rem !important;
