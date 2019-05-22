@@ -10,7 +10,61 @@
 </head>
 <body>
 
+        <h1 class="checkoutTitle">Checkout</h1>
         
+        <section class="checkout-flex">
+                <section>
+                        <h5>Your books</h5>
+                        <table class="table">
+                                <thead>
+                                        <tr>
+                                                <th scope="col">ISBN</th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                                <td>1234567</td>
+                                        </tr>
+                                        <tr>
+                                                <td>1234567</td>
+                                        </tr>
+                                        <tr>
+                                                <td>1234567</td>
+                                        </tr>
+                                        <tr>
+                                                <td>1234567</td>
+                                        </tr>
+                                        <tr>
+                                                <td>1234567</td>
+                                        </tr>
+                                </tbody>
+                        </table>
+                </section>
+
+        <form method="POST" class="form">
+        <h5>Fill in your information</h5>
+
+        <label for="customer_name">Name</label>
+        <input type="text" name="customer_name">
+
+        <label for="customer_address">Address</label>
+        <input type="text" name="customer_address">
+
+        <label for="customer_address">Phone</label>
+        <input type="text" name="customer_phone">
+
+        <label for="customer_address">Card Details</label>
+        <input type="text" name="card_details">
+        <div>
+                <input type="checkbox" class="checkbox"> <div>Approve general terms and conditions * </div> <br>
+        </div>
+        <button type="submit" class="btn">Submit</button>
+        
+        </form>
+
+        </section>
+
+        <a href="uploadpage.php"><button type="button" class="btn btn-lg returnBtn">Go back</button></a>
     
 </body>
 

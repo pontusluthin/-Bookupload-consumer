@@ -10,7 +10,7 @@ h1{
     margin-bottom: 10rem;
 }
 
-h2, h1{
+h2, h1, h5, label{
     font-weight: 300;
 }
 
@@ -35,5 +35,60 @@ button:hover{
 }
 
 .returnBtn{
-    margin-top: 15rem;
+    margin-top: 5rem;
 }
+
+.checkoutTitle{
+    margin-top: 3rem !important;
+    margin-bottom: 4rem !important;
+}
+
+.checkout-flex{
+    flex-direction: row;
+
+
+    section{
+        display: flex; 
+        flex-direction: column;
+        margin-right: 10rem;
+        margin-left: 15rem;
+        margin-top: -8rem;
+    }
+}
+
+table{
+    width: 150% !important;
+}
+
+.form{
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-start;
+    width: 25%;
+
+        input{
+            outline: none;
+        }
+
+        div{
+            display: flex; 
+            flex-direction: row;
+
+            div{
+                margin-top: 2rem;
+            }
+
+            .checkbox{
+                margin-top: 2.2rem;
+                margin-right: 1rem;
+            }
+        }
+    
+    
+        button{
+            width: 50%;
+            margin-top: 4rem;
+        }
+
+}
+

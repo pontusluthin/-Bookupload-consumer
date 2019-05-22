@@ -6,7 +6,7 @@ h1 {
   margin-top: 10rem;
   margin-bottom: 10rem; }
 
-h2, h1 {
+h2, h1, h5, label {
   font-weight: 300; }
 
 section {
@@ -33,4 +33,59 @@ button:hover {
   transition: 0.5s; }
 
 .returnBtn {
-  margin-top: 15rem; }
+  margin-top: 5rem; }
+
+.checkoutTitle {
+  margin-top: 3rem !important;
+  margin-bottom: 4rem !important; }
+
+.checkout-flex {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row; }
+  .checkout-flex section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-right: 10rem;
+    margin-left: 15rem;
+    margin-top: -8rem; }
+
+table {
+  width: 150% !important; }
+
+.form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 25%; }
+  .form input {
+    outline: none; }
+  .form div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row; }
+    .form div div {
+      margin-top: 2rem; }
+    .form div .checkbox {
+      margin-top: 2.2rem;
+      margin-right: 1rem; }
+  .form button {
+    width: 50%;
+    margin-top: 4rem; }
