@@ -9,7 +9,41 @@
         <title>Book Upload</title>
 </head>
 <body>
+
+<h1 class="recieveTitle">Recieve & Order</h1>
+
+<h5>Your books:</h5>
+                        <table class="table reciveTable">
+                                <thead>
+                                        <tr>
+                                                <th scope="col">ISBN</th>
+                                                <th scope="col">Title</th>
+                                                <th scope="col">Author</th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                                <td>1234567</td>
+                                                <td>Harry Potter 1</td>
+                                                <td>JK Rowling</td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>1234567</td>
+                                                <td>Harry Potter 2</td>
+                                                <td>JK Rowling</td>
+                                        </tr>
+                                        <tr>
+                                                <td>1234567</td>
+                                                <td>LOTR</td>
+                                                <td>Tolkien</td>
+                                        </tr>
+                                </tbody>
+                        </table>
     
+       </a>  <a href="startpage.php"><button type="button" class="btn btn-lg nextBtn">New order</button></a>
+
+
 </body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
