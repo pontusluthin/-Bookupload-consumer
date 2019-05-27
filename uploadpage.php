@@ -17,12 +17,13 @@
                 <button type="submit" class="btn">Submit</button>
         </form>
         <h2 class="filesTitle">Files:</h2>
-       
+        <pre>
                 <?php
 
           
 
-                if(isset($_FILES)){ //om vi skickar med en fil hamnar den är i superglobala variabeln
+                var_dump($_FILES);
+                /*if(isset($_FILES)){ //om vi skickar med en fil hamnar den är i superglobala variabeln
                         $check = true; 
 
                         if(@$_FILES['books_file']['type'] !== 'text/csv'){
@@ -36,11 +37,11 @@
 
                                 move_uploaded_file($_FILES['books_file']['tmp_name'], "$path"); // Anges inom citatecken om det t.ex. finns mellanslag i sökvägen.
                         }
-                }
+                }*/
 
 
                 ?>
-       
+       </pre>
         <a href="startpage.php"><button type="button" class="btn btn-lg returnBtn">Go back</button></a>  <a href="checkoutpage.php"><button type="button" class="btn btn-lg nextBtn">Next page</button></a>
 
 
