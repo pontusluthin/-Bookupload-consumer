@@ -12,7 +12,7 @@
 
         <h1>Upload CSV File</h1>
 
-        <form method="POST" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data">
                 <input type="file" name="books_file">
                 <button type="submit" class="btn">Submit</button>
         </form>
@@ -21,24 +21,21 @@
                 <?php
 
           
-
-                var_dump($_FILES);
-                /*if(isset($_FILES)){ //om vi skickar med en fil hamnar den är i superglobala variabeln
+                if(isset($_FILES)){
                         $check = true; 
 
                         if(@$_FILES['books_file']['type'] !== 'text/csv'){
                                 $check = false; 
                         }
 
-                        if($check) {
-
-                                $file_id = uniqid(); 
-                                $path = realpath('./') . '/uploaded_files/' . $file_id; //Funktion för att ta reda på den faktiska sökvägen för den upladdade filen
-
-                                move_uploaded_file($_FILES['books_file']['tmp_name'], "$path"); // Anges inom citatecken om det t.ex. finns mellanslag i sökvägen.
+                        if($check){
+                                $path = realpath('./') . '/uploaded_files/' . $_FILES['books_file']['name']; 
+                               
+                                move_uploaded_file($_FILES['books_file']['tmp_name'], "$path");
+                              
                         }
-                }*/
-
+                        
+                }
 
                 ?>
        </pre>
