@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+
+<?php
+        include_once 'DB/dbconnect.php';
+        include_once 'includes/order.inc.php';
+        
+
+?>
+
+
 <html lang="en">
 <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -21,27 +29,27 @@
                                                 <th scope="col">ISBN</th>
                                         </tr>
                                 </thead>
+
                                 <tbody>
+
                                         <tr>
-                                                <td>1234567</td>
+                                        <td> 
+                                        <?php
+                                
+                                        $books = new orderBooks(); 
+                                        $showIsbn = $books->upload();       
+                                
+                                        ?>
+                                        </td>
                                         </tr>
-                                        <tr>
-                                                <td>1234567</td>
-                                        </tr>
-                                        <tr>
-                                                <td>1234567</td>
-                                        </tr>
-                                        <tr>
-                                                <td>1234567</td>
-                                        </tr>
-                                        <tr>
-                                                <td>1234567</td>
-                                        </tr>
+                                
                                 </tbody>
                         </table>
+
+
                 </section>
 
-        <form method="POST" class="form">
+        <form action="./charge.php" method="POST" class="form" id="payment-form">
         <h5>Fill in your information</h5>
 
         <label for="customer_name">Name</label>
@@ -53,23 +61,69 @@
         <label for="customer_address">Phone</label>
         <input type="text" name="customer_phone">
 
-        <label for="customer_address">Card Details</label>
-        <input type="text" name="card_details">
+        <div class="form-row">
+        <label for="card-element">Credit or debit card</label>
+        <div id="card-element">
+        <!-- a Stripe Element will be inserted here. -->
+        </div>
+        <!-- Used to display form errors -->
+        <div id="card-errors"></div>
+        </div>
         <div>
                 <input type="checkbox" class="checkbox"> <div>Approve general terms and conditions * </div> <br>
         </div>
         <button type="submit" class="btn">Submit</button>
-        
         </form>
+
+        
 
         </section>
 
+        <pre>
+                        <?php
+
+                        function fill_book($isbn){
+
+                                $book = [];
+                                $book[0] = $isbn;
+                                $book[1] = 'Harry Potter'; //To get information from api use Curl!
+                                $book[2] = 'J K Rowling';
+
+                                return $book;
+
+                        }
+
+                 
+                        
+                        
+                        ?>
+        </pre>
+
+        
+     
+
         <a href="uploadpage.php"><button type="button" class="btn btn-lg returnBtn">Go back</button></a><a href="recievepage.php"><button type="button" class="btn btn-lg nextBtn">Next page</button></a>
-    
+
+
+<!-- The needed JS files -->
+<!-- JQUERY File -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Stripe JS -->
+<script src="https://js.stripe.com/v3/"></script>
+<!-- Your JS File -->
+<script src="./charge.js"></script>
 </body>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </html>
+
+<?php
+
+
+$getInfo = new orderBooks(); 
+$apiInfo = $getInfo->getApi(); 
+
+                
+
+?>
+

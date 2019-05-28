@@ -107,5 +107,27 @@ table {
   margin-top: 2rem; }
 
 pre {
-  margin-left: 35rem;
-  text-align: left; }
+  margin-left: 35rem; }
+
+.StripeElement {
+  background-color: white !important;
+  padding: 8px 12px !important;
+  border-radius: 4px !important;
+  border: 1px solid transparent !important;
+  -webkit-box-shadow: 0 1px 3px 0 #e6ebf1 !important;
+          box-shadow: 0 1px 3px 0 #e6ebf1 !important;
+  -webkit-transition: box-shadow 150ms ease !important;
+  -webkit-transition: -webkit-box-shadow 150ms ease !important;
+  transition: -webkit-box-shadow 150ms ease !important;
+  transition: box-shadow 150ms ease !important;
+  transition: box-shadow 150ms ease, -webkit-box-shadow 150ms ease !important; }
+
+.StripeElement--focus {
+  -webkit-box-shadow: 0 1px 3px 0 #cfd7df !important;
+          box-shadow: 0 1px 3px 0 #cfd7df !important; }
+
+.StripeElement--invalid {
+  border-color: #fa755a !important; }
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important; }

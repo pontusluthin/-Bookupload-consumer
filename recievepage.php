@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<?php
+
+include_once 'includes/order.inc.php';
+
+?>
+
+
 <html lang="en">
 <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -40,6 +46,13 @@
                                         </tr>
                                 </tbody>
                         </table>
+
+                        <?php
+                        
+                        $getClass = new orderBooks(); 
+                        $downloadLink = $getClass->download(); 
+                        
+                        ?>
     
        </a>  <a href="startpage.php"><button type="button" class="btn btn-lg nextBtn">New order</button></a>
 

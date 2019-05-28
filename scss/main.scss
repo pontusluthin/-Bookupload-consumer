@@ -114,5 +114,24 @@ table{
 
 pre{
     margin-left: 35rem;
-    text-align: left;
+    
+}
+
+.StripeElement {
+    background-color: white !important;
+    padding: 8px 12px !important;
+    border-radius: 4px !important;
+    border: 1px solid transparent !important;
+    box-shadow: 0 1px 3px 0 #e6ebf1 !important;
+    -webkit-transition: box-shadow 150ms ease !important;
+    transition: box-shadow 150ms ease !important;
+}
+.StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df !important;
+}
+.StripeElement--invalid {
+    border-color: #fa755a !important;
+}
+.StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
 }
