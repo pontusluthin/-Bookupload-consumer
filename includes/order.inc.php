@@ -57,7 +57,14 @@ class orderBooks{
 
     }
 
-    public function getApi(){
+    public function getApi($uploadCSV){
+
+        array_shift($uploadCSV);
+
+
+        foreach ($uploadCSV as $isbn){
+
+        $isbn = $isbn[0];
         
         $url = 'https://5ce8007d9f2c390014dba45e.mockapi.io/books/';
 
@@ -71,9 +78,35 @@ class orderBooks{
         $response = curl_exec($ch);
         curl_close($ch);
 
-        return $response;
+        $string = substr($response);
+        $api_data = json_decode($string, true);
+        $array [] = $api_data;
+
+        }
+
+        return $array;
+       
 
     }
+
+
+    public function insert_new_data($data){
+
+        foreach($data as $apidata){
+            if($apidata !== null){
+
+                $book = [];
+                $book[0] = $data[0];
+                $book[2] = $data[1];
+                $book[3] = $data[2];
+                return $book;
+
+            }
+        }
+
+    }
+
+ 
 
 
 }

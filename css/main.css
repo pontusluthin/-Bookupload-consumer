@@ -1,5 +1,8 @@
 body {
   height: 40rem;
+  font-family: 'Open Sans', sans-serif; }
+
+.body-center {
   text-align: center; }
 
 h1 {
@@ -33,6 +36,29 @@ button:hover {
   transition: 0.5s;
   border: 0.05rem solid #006eff !important; }
 
+.checkout-input {
+  width: 20rem;
+  font-size: 1.5rem;
+  outline: none;
+  border-radius: 0.2rem;
+  border: 0.05rem solid rgba(219, 219, 219, 0.644);
+  margin-top: 0.3rem;
+  margin-bottom: 1rem; }
+
+.checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 1rem;
+  margin-bottom: 2rem; }
+  .checkbox div {
+    margin-left: -18rem;
+    margin-top: 1rem; }
+
 .filesTitle {
   margin-top: 3rem; }
 
@@ -42,14 +68,16 @@ button:hover {
   margin-right: 3rem; }
 
 .checkoutTitle {
-  margin-top: 3rem !important;
-  margin-bottom: 4rem !important; }
+  margin-top: 5rem !important;
+  margin-bottom: 4rem !important;
+  text-align: center; }
 
 .checkout-flex {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
-          flex-direction: row; }
+          flex-direction: row;
+  font-family: 'Open Sans', sans-serif; }
   .checkout-flex section {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -58,43 +86,13 @@ button:hover {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    margin-right: 10rem;
-    margin-left: 15rem;
-    margin-top: -8rem; }
+    margin-right: 20rem;
+    margin-left: 0rem;
+    margin-top: -27rem;
+    font-size: 2rem; }
 
 table {
   width: 150% !important; }
-
-.form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  width: 25%; }
-  .form input {
-    outline: none; }
-  .form div {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row; }
-    .form div div {
-      margin-top: 2rem; }
-    .form div .checkbox {
-      margin-top: 2.2rem;
-      margin-right: 1rem; }
-  .form button {
-    width: 50%;
-    margin-top: 4rem; }
 
 .recieveTitle {
   margin-top: 6rem !important;
@@ -110,24 +108,44 @@ pre {
   margin-left: 35rem; }
 
 .StripeElement {
-  background-color: white !important;
-  padding: 8px 12px !important;
-  border-radius: 4px !important;
-  border: 1px solid transparent !important;
-  -webkit-box-shadow: 0 1px 3px 0 #e6ebf1 !important;
-          box-shadow: 0 1px 3px 0 #e6ebf1 !important;
-  -webkit-transition: box-shadow 150ms ease !important;
-  -webkit-transition: -webkit-box-shadow 150ms ease !important;
-  transition: -webkit-box-shadow 150ms ease !important;
-  transition: box-shadow 150ms ease !important;
-  transition: box-shadow 150ms ease, -webkit-box-shadow 150ms ease !important; }
+  background-color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  -webkit-box-shadow: 0 1px 3px 0 #e6ebf1;
+          box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  -webkit-transition: -webkit-box-shadow 150ms ease;
+  transition: -webkit-box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease, -webkit-box-shadow 150ms ease; }
 
 .StripeElement--focus {
-  -webkit-box-shadow: 0 1px 3px 0 #cfd7df !important;
-          box-shadow: 0 1px 3px 0 #cfd7df !important; }
+  -webkit-box-shadow: 0 1px 3px 0 #cfd7df;
+          box-shadow: 0 1px 3px 0 #cfd7df; }
 
 .StripeElement--invalid {
-  border-color: #fa755a !important; }
+  border-color: #fa755a; }
 
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important; }
+
+#card-element {
+  width: 25rem;
+  margin-bottom: 1rem; }
+
+#payment-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.payment-button {
+  width: 10rem;
+  padding: 0.7rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-size: 1rem; }

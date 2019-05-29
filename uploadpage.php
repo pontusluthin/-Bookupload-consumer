@@ -1,3 +1,13 @@
+
+<?php
+
+if(isset($_POST['books_file'])) {
+	header('location: checkoutpage.php');
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,13 +18,13 @@
         <link rel="stylesheet" href="css/main.css">
         <title>Book Uploadpage</title>
 </head>
-<body>
+<body class="body-center">
 
         <h1>Upload CSV File</h1>
 
         <form method="post" enctype="multipart/form-data">
                 <input type="file" name="books_file">
-                <button type="submit" class="btn">Submit</button>
+                <button type="submit" class="btn" name="submit">Submit</button>
         </form>
         <h2 class="filesTitle">Files:</h2>
         <pre>
@@ -39,7 +49,7 @@
 
                 ?>
        </pre>
-        <a href="startpage.php"><button type="button" class="btn btn-lg returnBtn">Go back</button></a>  <a href="checkoutpage.php"><button type="button" class="btn btn-lg nextBtn">Next page</button></a>
+        <a href="startpage.php"><button type="button" class="btn btn-lg returnBtn">Go back</button></a> 
 
 
     

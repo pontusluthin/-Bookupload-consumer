@@ -139,7 +139,7 @@ if (isset($customer)) {
     }
 
     if ($charge_customer) {
-        print_r($charge);
+        header('location: recievepage.php'); 
     }
 }
 ?>

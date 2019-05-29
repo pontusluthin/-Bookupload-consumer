@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="css/main.css">
         <title>Book Upload Startpage</title>
 </head>
-<body>
+<body class="body-center">
 
         <h1>Book Consumer System</h1>
 
