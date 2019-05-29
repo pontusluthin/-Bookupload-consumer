@@ -1,7 +1,6 @@
 
 <?php
-        include_once 'DB/dbconnect.php';
-        include_once 'includes/order.inc.php';
+        /*include_once 'includes/checkout.inc.php';*/
         
 
 ?>
@@ -34,8 +33,8 @@
                                         <td> 
                                         <?php
                                 
-                                        $books = new orderBooks(); 
-                                        $showIsbn = $books->upload();       
+                                       /* $books = new orderBooks(); 
+                                        $showIsbn = $books->upload();     */  
                                 
                                         ?>
                                         </td>
@@ -69,7 +68,7 @@
                         <!-- Used to display form errors -->
                         <div id="card-errors"></div>
                         </div>
-                        <button name="submit" class="payment-button">Submit Payment</button>
+                        <button class="payment-button">Submit Payment</button>
                 </form>
 <!-- The needed JS files -->
 <!-- JQUERY File -->

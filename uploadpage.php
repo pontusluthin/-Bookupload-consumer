@@ -1,9 +1,16 @@
 
 <?php
 
-if(isset($_POST['books_file'])) {
-	header('location: checkoutpage.php');
-}
+
+require_once 'includes/upload.inc.php';
+
+if(isset($_POST['submit'])){
+
+        $csv_file = filter_input(INPUT_POST,'csv_file', FILTER_SANITIZE_STRING);
+    
+        $insertFile = new DBinsert(); 
+        $insertFile->uploadFile($fields); 
+    }
 
 ?>
 
@@ -23,7 +30,7 @@ if(isset($_POST['books_file'])) {
         <h1>Upload CSV File</h1>
 
         <form method="post" enctype="multipart/form-data">
-                <input type="file" name="books_file">
+                <input type="file" name="csv_file">
                 <button type="submit" class="btn" name="submit">Submit</button>
         </form>
         <h2 class="filesTitle">Files:</h2>
@@ -34,14 +41,14 @@ if(isset($_POST['books_file'])) {
                 if(isset($_FILES)){
                         $check = true; 
 
-                        if(@$_FILES['books_file']['type'] !== 'text/csv'){
+                        if(@$_FILES['csv_file']['type'] !== 'text/csv'){
                                 $check = false; 
                         }
 
                         if($check){
                                 $path = realpath('./') . '/uploaded_files/isbn.csv';
                                
-                                move_uploaded_file($_FILES['books_file']['tmp_name'], "$path");
+                                move_uploaded_file($_FILES['csv_file']['tmp_name'], "$path");
                               
                         }
                         

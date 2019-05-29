@@ -80,25 +80,25 @@ class orderBooks{
 
         $string = substr($response);
         $api_data = json_decode($string, true);
-        $array [] = $api_data;
+        //$array [] = $api_data;
 
         }
 
-        return $array;
+        return $api_data;
        
 
     }
 
 
-    public function insert_new_data($data){
+    public function fill_book($isbn){
 
-        foreach($data as $apidata){
+        foreach($isbn as $apidata){
             if($apidata !== null){
 
                 $book = [];
-                $book[0] = $data[0];
-                $book[2] = $data[1];
-                $book[3] = $data[2];
+                $book[0] = $isbn[0];
+                $book[2] = $isbn[1];
+                $book[3] = $isbn[2];
                 return $book;
 
             }
