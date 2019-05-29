@@ -1,7 +1,7 @@
 <?php
 class DBConnect {
     private $host = "localhost";
-    private $database   = "book_customer";
+    private $database   = "book_system";
     private $username = "root";
     private $password = "";
     private $charset = "utf8mb4";
