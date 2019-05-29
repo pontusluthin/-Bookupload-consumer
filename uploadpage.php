@@ -8,8 +8,8 @@ if(isset($_POST['submit'])){
 
         $csv_file = filter_input(INPUT_POST,'csv_file', FILTER_SANITIZE_STRING);
     
-        $insertFile = new DBinsert(); 
-        $insertFile->uploadFile($fields); 
+        $insertFile = new upload(); 
+        $insertFile->uploadFileToDatabase($fields); 
     }
 
 ?>
@@ -34,28 +34,15 @@ if(isset($_POST['submit'])){
                 <button type="submit" class="btn" name="submit">Submit</button>
         </form>
         <h2 class="filesTitle">Files:</h2>
-        <pre>
+        
                 <?php
 
           
-                if(isset($_FILES)){
-                        $check = true; 
-
-                        if(@$_FILES['csv_file']['type'] !== 'text/csv'){
-                                $check = false; 
-                        }
-
-                        if($check){
-                                $path = realpath('./') . '/uploaded_files/isbn.csv';
-                               
-                                move_uploaded_file($_FILES['csv_file']['tmp_name'], "$path");
-                              
-                        }
-                        
-                }
+                $upload = new upload(); 
+                $uploadFile = $upload->uploadFileToFolder();  
 
                 ?>
-       </pre>
+       
         <a href="startpage.php"><button type="button" class="btn btn-lg returnBtn">Go back</button></a> 
 
 
