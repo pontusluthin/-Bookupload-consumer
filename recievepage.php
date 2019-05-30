@@ -30,7 +30,7 @@ if ($books) {
         fclose($file_to_write);
     
         if ($everything_is_awesome) {
-            echo '<a href="' . $filename . '">Everything is awesome</a>';
+            echo '<a href="orders/new_books.csv">Everything is awesome</a>';
         } else {
             echo 'Everything is NOT awesome';
         }
@@ -47,7 +47,9 @@ if ($books) {
         return $book;
     }
 
-
+    $newPath = 'orders/new_books.csv';
+    $newCSV = array_map('str_getcsv', file($newPath));
+    array_shift($newCSV);
 
 
 
@@ -107,14 +109,14 @@ if($books){
                                 </thead>
                                 <tbody>
                                         <?php
-                                        foreach ($created_csv as $info) :
+                                        foreach ($newCSV as $new_books) {
                                         ?>
                                         <tr>
-                                                <td><?php echo $info[0]?></td>
-                                                <td><?php echo $info[1]?></td>
-                                                <td><?php echo $info[2]?></td>
+                                                <td><?php echo $new_books[0]?></td>
+                                                <td><?php echo $new_books[1]?></td>
+                                                <td><?php echo $new_books[2]?></td>
                                         </tr>    
-                                        <?php endforeach;?>
+                                        <?php }?>
                                         </table>
                                         
                                 </tbody>
