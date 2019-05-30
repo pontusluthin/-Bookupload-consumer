@@ -40,14 +40,20 @@ button:hover{
 
 }
 
-.checkout-input{
-    width: 20rem;
-    font-size: 1.5rem;
+.checkout-input, .checkbox-input{
+    width: 26rem;
+    font-size: 1rem;
     outline: none;
     border-radius: 0.2rem;
-    border: 0.05rem solid rgba(219, 219, 219, 0.644); 
+    border: 0.05rem solid rgba(219, 219, 219, 0.1); 
     margin-top: 0.3rem;
     margin-bottom: 1rem;
+    font-weight: 300;
+    padding: 0.7rem;
+}
+
+.checkout-input{
+    box-shadow: 0.05rem 0.05rem 0.2rem rgba(233, 237, 243, 0.9);
 }
 
 .checkbox{
@@ -56,9 +62,14 @@ button:hover{
     margin-top: 1rem;
     margin-bottom: 2rem;
         div{
-            margin-left: -18rem;
-            margin-top: 1rem;
+            margin-left: -24rem;
+            margin-top: 0.2rem;
         }
+}
+
+::placeholder{
+    color: rgb(185, 192, 207);
+    opacity: 1;
 }
 
 .filesTitle{

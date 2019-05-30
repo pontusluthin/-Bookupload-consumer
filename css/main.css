@@ -36,14 +36,20 @@ button:hover {
   transition: 0.5s;
   border: 0.05rem solid #006eff !important; }
 
-.checkout-input {
-  width: 20rem;
-  font-size: 1.5rem;
+.checkout-input, .checkbox-input {
+  width: 26rem;
+  font-size: 1rem;
   outline: none;
   border-radius: 0.2rem;
-  border: 0.05rem solid rgba(219, 219, 219, 0.644);
+  border: 0.05rem solid rgba(219, 219, 219, 0.1);
   margin-top: 0.3rem;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  font-weight: 300;
+  padding: 0.7rem; }
+
+.checkout-input {
+  -webkit-box-shadow: 0.05rem 0.05rem 0.2rem rgba(233, 237, 243, 0.9);
+          box-shadow: 0.05rem 0.05rem 0.2rem rgba(233, 237, 243, 0.9); }
 
 .checkbox {
   display: -webkit-box;
@@ -56,8 +62,24 @@ button:hover {
   margin-top: 1rem;
   margin-bottom: 2rem; }
   .checkbox div {
-    margin-left: -18rem;
-    margin-top: 1rem; }
+    margin-left: -24rem;
+    margin-top: 0.2rem; }
+
+::-webkit-input-placeholder {
+  color: #b9c0cf;
+  opacity: 1; }
+
+:-ms-input-placeholder {
+  color: #b9c0cf;
+  opacity: 1; }
+
+::-ms-input-placeholder {
+  color: #b9c0cf;
+  opacity: 1; }
+
+::placeholder {
+  color: #b9c0cf;
+  opacity: 1; }
 
 .filesTitle {
   margin-top: 3rem; }

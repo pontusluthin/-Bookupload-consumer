@@ -15,7 +15,7 @@ class orderBooks{
 
                         $books = []; //Nested array to hold all the arrays
 
-                        if ($file_handle = fopen($files, 'r')){ //'r' stands for only read
+                        if (@$file_handle = fopen($files, 'r')){ //'r' stands for only read
 
                                 //Read one line from the csv file, using comma as a separator 
                                 while ($data = fgetcsv($file_handle)) { //100 is default value and sets readable lines on max 100 characters

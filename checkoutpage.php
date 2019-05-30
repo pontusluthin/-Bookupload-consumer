@@ -49,16 +49,16 @@
                 <form action="charge.php" method="post" id="payment-form">
                 
                 <label for="customer_name">Name</label>
-                        <input class="checkout-input"type="text" name="customer_name">
+                        <input class="checkout-input"type="text" name="customer_name" placeholder="Firstname & Lastname">
 
                         <label for="customer_address">Address</label>
-                        <input class="checkout-input" type="text" name="customer_address">
+                        <input class="checkout-input" type="text" name="customer_address" placeholder="Adress, ZIP & City">
 
                         <label for="customer_address">Phone</label>
-                        <input class="checkout-input" type="text" name="customer_phone">
+                        <input class="checkout-input" type="text" name="customer_phone" placeholder="Mobilenumber including country code">
 
                         <div class="checkbox" >
-                                <input class="checkout-input" type="checkbox" class="checkbox"> <div>Approve general terms and conditions * </div> <br>
+                                <input class="checkbox-input" type="checkbox" class="checkbox"> <div>Approve general terms and conditions * </div> <br>
                         </div>
                 <div class="form-row">
                         <label for="card-element">Credit or debit card</label>
