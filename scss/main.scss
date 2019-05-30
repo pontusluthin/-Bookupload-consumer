@@ -67,6 +67,11 @@ button:hover{
         }
 }
 
+.isbn{
+    text-align: center;
+    margin-top: 2rem;
+}
+
 ::placeholder{
     color: rgb(185, 192, 207);
     opacity: 1;
@@ -100,8 +105,12 @@ button:hover{
         flex-direction: column;
         margin-right: 20rem;
         margin-left: 0rem;
-        margin-top: -27rem;
+        margin-top: -10rem;
         font-size: 2rem;
+
+        h5{
+            font-weight: bold; 
+        }
        
     }
 }

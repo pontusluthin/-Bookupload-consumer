@@ -65,6 +65,10 @@ button:hover {
     margin-left: -24rem;
     margin-top: 0.2rem; }
 
+.isbn {
+  text-align: center;
+  margin-top: 2rem; }
+
 ::-webkit-input-placeholder {
   color: #b9c0cf;
   opacity: 1; }
@@ -110,8 +114,10 @@ button:hover {
             flex-direction: column;
     margin-right: 20rem;
     margin-left: 0rem;
-    margin-top: -27rem;
+    margin-top: -10rem;
     font-size: 2rem; }
+    .checkout-flex section h5 {
+      font-weight: bold; }
 
 table {
   width: 150% !important; }

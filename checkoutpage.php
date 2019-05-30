@@ -30,7 +30,7 @@
                                 <tbody>
 
                                         <tr>
-                                        <td> 
+                                        <td class="isbn"> 
                                         <?php
                                 
                                        $books = new orderBooks(); 
