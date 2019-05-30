@@ -11,22 +11,22 @@ class orderBooks{
 
 
     public function upload(){
-        /*$files = 'uploaded_files/isbn.csv'; 
+        $files = 'uploaded_files/isbn.csv'; 
 
                         $books = []; //Nested array to hold all the arrays
 
-                        if (@$file_handle = fopen($files, 'r')){ //'r' stands for only read
+                        if ($file_handle = fopen($files, 'r')){ //'r' stands for only read
 
                                 //Read one line from the csv file, using comma as a separator 
                                 while ($data = fgetcsv($file_handle)) { //100 is default value and sets readable lines on max 100 characters
-                                        $books[] = fill_book($data[0]);
+                                        $books[] = $data[0];
                                        echo $data[0] . '<br>';
                                 
                                 }
 
                                 //Close the file 
                                 //fclose($file_handle);
-            }        */ 
+            } 
             
         
                         
@@ -57,14 +57,14 @@ class orderBooks{
 
     }
 
-    public function getApi($uploadCSV){
+    public function getApi(){
 
-        array_shift($uploadCSV);
+        //array_shift($uploadCSV);
 
 
-        foreach ($uploadCSV as $isbn){
+        
 
-        $isbn = $isbn[0];
+        $isbn = [0];
         
         $url = 'https://5ce8007d9f2c390014dba45e.mockapi.io/books/';
 
@@ -82,9 +82,7 @@ class orderBooks{
         $api_data = json_decode($string, true);
         //$array [] = $api_data;
 
-        }
-
-        return $api_data;
+       
        
 
     }

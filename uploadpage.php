@@ -35,14 +35,13 @@ if(isset($_POST['submit'])){
         </form>
         <h2 class="filesTitle">Files:</h2>
         
-                <?php
+        <?php
+        
+        $upload = new upload(); 
+        $uploadFile = $upload->uploadFileToFolder(); 
 
-          
-                $upload = new upload(); 
-                $uploadFile = $upload->uploadFileToFolder();  
-
-                ?>
-       
+        ?>
+             
         <a href="startpage.php"><button type="button" class="btn btn-lg returnBtn">Go back</button></a> 
 
 

@@ -1,6 +1,6 @@
 
 <?php
-        /*include_once 'includes/checkout.inc.php';*/
+        include_once 'includes/checkout.inc.php';
         
 
 ?>
@@ -33,8 +33,8 @@
                                         <td> 
                                         <?php
                                 
-                                       /* $books = new orderBooks(); 
-                                        $showIsbn = $books->upload();     */  
+                                       $books = new orderBooks(); 
+                                       $showIsbn = $books->upload();
                                 
                                         ?>
                                         </td>
