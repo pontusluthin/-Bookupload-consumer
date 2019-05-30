@@ -21,6 +21,7 @@ if(isset($_POST['submit'])){
     
        
         $upload->uploadFileToDatabase($csv_file); 
+
     }
 
 ?>

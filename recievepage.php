@@ -1,6 +1,47 @@
+
 <?php
 
-include_once 'includes/order.inc.php';
+include_once 'includes/checkout.inc.php';
+include_once 'includes/api.inc.php';
+
+
+
+$api = new getAPi(); 
+$files = new orderBooks(); 
+
+$getApi = $api->getApi(); 
+
+
+
+
+echo $getApi;
+
+/*foreach($getApi as $data){
+        $books[] = [$data['ISBN'],$data ['bookTitle'], $data['authorName']];
+}
+
+if($books){
+
+        $true = true; 
+
+        $titleFields = ['ISBN','Book Title','Author'];
+        $create_new_file = fopen('orders/new_csv.csv', 'w');
+
+        $true = $true && fputcsv($create_new_file,$titleFields);
+
+        foreach($books as $book){
+                $book = $files->fill_book($book);
+                if($book !== null){
+                  $data = $book;
+                  $true = $true && fputcsv($create_new_file,$data);
+                }
+          }
+
+
+}*/
+
+
+
 
 ?>
 
@@ -28,31 +69,20 @@ include_once 'includes/order.inc.php';
                                         </tr>
                                 </thead>
                                 <tbody>
+                                        <?php
+                                        foreach ($created_csv as $info) :
+                                        ?>
                                         <tr>
-                                                <td>1234567</td>
-                                                <td>Harry Potter 1</td>
-                                                <td>JK Rowling</td>
-
-                                        </tr>
-                                        <tr>
-                                                <td>1234567</td>
-                                                <td>Harry Potter 2</td>
-                                                <td>JK Rowling</td>
-                                        </tr>
-                                        <tr>
-                                                <td>1234567</td>
-                                                <td>LOTR</td>
-                                                <td>Tolkien</td>
-                                        </tr>
+                                                <td><?php echo $info[0]?></td>
+                                                <td><?php echo $info[1]?></td>
+                                                <td><?php echo $info[2]?></td>
+                                        </tr>    
+                                        <?php endforeach;?>
+                                        </table>
+                                        
                                 </tbody>
                         </table>
 
-                        <?php
-                        
-                        $getClass = new orderBooks(); 
-                        $downloadLink = $getClass->download(); 
-                        
-                        ?>
     
        </a>  <a href="startpage.php"><button type="button" class="btn btn-lg nextBtn">New order</button></a>
 

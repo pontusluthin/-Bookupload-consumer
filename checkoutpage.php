@@ -49,17 +49,23 @@
                                 </thead>
 
                                 <tbody>
+                                        <?php
+                                        $books = new orderBooks(); 
+                                        $showIsbn = $books->showFileInfo();
 
+                                        foreach($showIsbn as $row){
+                                        ?>
                                         <tr>
                                         <td class="isbn"> 
-                                        <?php
-                                
-                                       $books = new orderBooks(); 
-                                       $showIsbn = $books->showFileInfo();
-                                
-                                        ?>
+                                       
+                                        <?php echo $row; ?>
+                                    
+                                     
                                         </td>
                                         </tr>
+                                        <?php
+                                        }
+                                        ?>
                                 
                                 </tbody>
                         </table>
