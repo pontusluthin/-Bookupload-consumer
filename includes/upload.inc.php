@@ -16,7 +16,10 @@ class upload{
         //Function to store the file in the database 
         public function uploadFileToDatabase($csv_file) 
         {
-            $statement = $this->db->prepare("INSERT INTO files(csv_file) VALUES ('$csv_file')");
+            $statement = $this->db->prepare("INSERT INTO files(csv_file) VALUES (:csv_file)");
+
+            $statement->bindValue(':csv_file', $csv_file);
+
             if ($statement->execute()) {
                 echo ("File uploaded");
                 header('location: checkoutpage.php');

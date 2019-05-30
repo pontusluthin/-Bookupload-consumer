@@ -6,10 +6,18 @@ require_once 'includes/upload.inc.php';
 
 if(isset($_POST['submit'])){
 
-        $csv_file = filter_input(INPUT_POST,'csv_file', FILTER_SANITIZE_STRING);
+        $csv_file = basename($_FILES['csv_file']['name']);;
+
+        move_uploaded_file($_FILES["csv_file"]["tmp_name"], $csv_file);
+
+        $fields = [
+
+        'csv_file' =>$csv_file, 
+
+        ];
     
         $insertFile = new upload(); 
-        $insertFile->uploadFileToDatabase($fields); 
+        $insertFile->uploadFileToDatabase($csv_file); 
     }
 
 ?>
