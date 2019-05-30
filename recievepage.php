@@ -11,10 +11,47 @@ $files = new orderBooks();
 
 $getApi = $api->getApi(); 
 
+$books = $files->showFileInfo();
+
+if ($books) {
+
+        $everything_is_awesome = true;
+
+        $fields = ['ISBN','Book Title','Author'];
+        $file_to_write = fopen('orders/new_books.csv', 'w');
+    
+        
+    
+        foreach ($books as $book) {
+           $book = fill_book($book[0]);
+            $everything_is_awesome = $everything_is_awesome && fputcsv($file_to_write, $book);
+        }
+    
+        fclose($file_to_write);
+    
+        if ($everything_is_awesome) {
+            echo '<a href="' . $filename . '">Everything is awesome</a>';
+        } else {
+            echo 'Everything is NOT awesome';
+        }
+    }
+    
+    
+    function fill_book($isbn)
+    {
+        $book = [];
+        $book[0] = $isbn;
+        $book[1] = 'Harry Potter';
+        $book[2] = 'J K Rowling';
+    
+        return $book;
+    }
 
 
 
-echo $getApi;
+
+
+
 
 /*foreach($getApi as $data){
         $books[] = [$data['ISBN'],$data ['bookTitle'], $data['authorName']];
