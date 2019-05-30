@@ -51,7 +51,7 @@ if(isset($_POST['submit'])){
         
         
         <!-- Link to go back one step on the page -->     
-        <a href="startpage.php"><button type="button" class="btn btn-lg returnBtn">Go back</button></a> 
+        <a href="index.php"><button type="button" class="btn btn-lg returnBtn">Go back</button></a> 
 
 
     

@@ -110,7 +110,7 @@ if ($books) {
                         <div class="file_link"><?php echo $file_link; ?></div>
 
     
-       </a>  <a href="startpage.php"><button type="button" class="btn btn-lg nextBtn newOrderBtn">New order</button></a>
+       </a>  <a href="index.php"><button type="button" class="btn btn-lg nextBtn newOrderBtn">New order</button></a>
 
 
 </body>
