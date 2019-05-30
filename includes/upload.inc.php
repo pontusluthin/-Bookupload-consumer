@@ -6,12 +6,16 @@ require_once('dbconnect.php');
 
 class upload{
 
+
+        //db connection 
         public function __construct()
         {
             $db = new DBConnect();
             $this->db = $db->pdo;
         }
 
+
+        //Function to upload the inserted file on uploadpage.php, the file is uploaded specific to the uploaded_files foled and has the name isbn.csv set. 
         public function uploadFileToFolder(){
 
             if(isset($_FILES)){
@@ -46,9 +50,6 @@ class upload{
                 echo ("Could not upload file correctly");
             }
         }
-
-        //Function to upload the file with set name isbn.csv to uploaded_files foder
-     
 
 
 

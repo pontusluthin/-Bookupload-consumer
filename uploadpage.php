@@ -7,6 +7,7 @@ require_once 'includes/upload.inc.php';
 $upload = new upload(); 
 $uploadFile = $upload->uploadFileToFolder(); 
 
+//If statement to insert the file into the database. 
 if(isset($_POST['submit'])){
 
         $csv_file = basename($_FILES['csv_file']['name']);;
@@ -41,6 +42,7 @@ if(isset($_POST['submit'])){
 
         <h1>Upload CSV File</h1>
 
+        <!-- Form to upload a new csv file -->
         <form method="post" enctype="multipart/form-data">
                 <input type="file" name="csv_file">
                 <button type="submit" class="btn" name="submit">Submit</button>
@@ -48,7 +50,7 @@ if(isset($_POST['submit'])){
         <h2 class="filesTitle">Files:</h2>
         
         
-             
+        <!-- Link to go back one step on the page -->     
         <a href="startpage.php"><button type="button" class="btn btn-lg returnBtn">Go back</button></a> 
 
 

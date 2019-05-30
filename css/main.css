@@ -123,8 +123,9 @@ table {
   width: 150% !important; }
 
 .recieveTitle {
-  margin-top: 6rem !important;
-  margin-bottom: 6rem !important; }
+  margin-top: 3rem !important;
+  margin-bottom: 3rem !important;
+  text-align: center; }
 
 .reciveTable {
   width: 50% !important;
@@ -177,3 +178,12 @@ pre {
   border-radius: 0.3rem;
   cursor: pointer;
   font-size: 1rem; }
+
+.booksTitle {
+  text-align: center; }
+
+.newOrderBtn {
+  margin-left: 25rem; }
+
+.file_link {
+  text-align: center; }

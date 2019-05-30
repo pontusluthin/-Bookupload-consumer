@@ -5,38 +5,48 @@ include_once 'includes/checkout.inc.php';
 include_once 'includes/api.inc.php';
 
 
-
+//retrieve the api class from api.inc.php
 $api = new getAPi(); 
+
+//retrieve the ordeBooks class from checkout.inc.php
 $files = new orderBooks(); 
 
+//retrieve the api function from api class 
 $getApi = $api->getApi(); 
 
+//retrieve the show file info function from orderBooks class. 
 $books = $files->showFileInfo();
 
 if ($books) {
 
-        $everything_is_awesome = true;
+        //bolean set 
+        $ok = true;
 
+        //set the fields for new file
         $fields = ['ISBN','Book Title','Author'];
+
+        //selects the har coded file to open and write, in this case in folder orders and file new_books.csv
         $file_to_write = fopen('orders/new_books.csv', 'w');
     
         
-    
+        //foreach that tells with fill_book function, what to write. 
         foreach ($books as $book) {
            $book = fill_book($book[0]);
-            $everything_is_awesome = $everything_is_awesome && fputcsv($file_to_write, $book);
+            $ok = $ok && fputcsv($file_to_write, $book);
         }
     
         fclose($file_to_write);
     
-        if ($everything_is_awesome) {
-            echo '<a href="orders/new_books.csv">Everything is awesome</a>';
+        //if $ok is bolead true a new link to the new file will be created and visable for the user. 
+        if ($ok) {
+            $file_link = '<a href="orders/new_books.csv" download>Show CSV file</a>';
         } else {
             echo 'Everything is NOT awesome';
         }
     }
     
     
+    //function to add new hard coded test values to new_books.csv
     function fill_book($isbn)
     {
         $book = [];
@@ -47,40 +57,10 @@ if ($books) {
         return $book;
     }
 
+    //Convert information from file and show the information on the recieve page below in table
     $newPath = 'orders/new_books.csv';
     $newCSV = array_map('str_getcsv', file($newPath));
     array_shift($newCSV);
-
-
-
-
-
-/*foreach($getApi as $data){
-        $books[] = [$data['ISBN'],$data ['bookTitle'], $data['authorName']];
-}
-
-if($books){
-
-        $true = true; 
-
-        $titleFields = ['ISBN','Book Title','Author'];
-        $create_new_file = fopen('orders/new_csv.csv', 'w');
-
-        $true = $true && fputcsv($create_new_file,$titleFields);
-
-        foreach($books as $book){
-                $book = $files->fill_book($book);
-                if($book !== null){
-                  $data = $book;
-                  $true = $true && fputcsv($create_new_file,$data);
-                }
-          }
-
-
-}*/
-
-
-
 
 ?>
 
@@ -98,7 +78,7 @@ if($books){
 
 <h1 class="recieveTitle">Recieve & Order</h1>
 
-<h5>Your books:</h5>
+<h5 class="booksTitle">Your books:</h5>
                         <table class="table reciveTable">
                                 <thead>
                                         <tr>
@@ -108,7 +88,11 @@ if($books){
                                         </tr>
                                 </thead>
                                 <tbody>
+
+                                        
                                         <?php
+
+                                        //loop through the new created csv file and show them below in a table. 
                                         foreach ($newCSV as $new_books) {
                                         ?>
                                         <tr>
@@ -122,8 +106,11 @@ if($books){
                                 </tbody>
                         </table>
 
+                        <!-- The link to actually download the new csv file -->
+                        <div class="file_link"><?php echo $file_link; ?></div>
+
     
-       </a>  <a href="startpage.php"><button type="button" class="btn btn-lg nextBtn">New order</button></a>
+       </a>  <a href="startpage.php"><button type="button" class="btn btn-lg nextBtn newOrderBtn">New order</button></a>
 
 
 </body>

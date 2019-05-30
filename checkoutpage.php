@@ -1,28 +1,8 @@
 
 <?php
+
+
         include_once 'includes/checkout.inc.php';
-
-       /* if(isset($_POST['submit'])){
-
-                $name = filter_input(INPUT_POST,'name', FILTER_SANITIZE_STRING);
-                $address = filter_input(INPUT_POST,'address', FILTER_SANITIZE_STRING);
-                $phone = filter_input(INPUT_POST,'phone', FILTER_SANITIZE_STRING);
-                $stripe_info = filter_input(INPUT_POST,'stripe_info', FILTER_SANITIZE_STRING);
-            
-                $orderDetails = [
-            
-                    'name' =>$name, 
-                    'address' =>$address, 
-                    'phone' =>$phone, 
-                    'stripe_info' =>$stripe_info
-                ];
-            
-              
-            
-                $customerInfo = new orderBooks(); 
-                $customerInfo->customerInfo($orderDetails); 
-            }*/
-        
 
 ?>
 
@@ -50,9 +30,12 @@
 
                                 <tbody>
                                         <?php
+
+                                        //retrieve the class orderBooks and function show file to show the uploaded isb numbers below in a table 
                                         $books = new orderBooks(); 
                                         $showIsbn = $books->showFileInfo();
 
+                                        // showing isbn numbers. 
                                         foreach($showIsbn as $row){
                                         ?>
                                         <tr>
@@ -73,6 +56,7 @@
 
                 </section>
 
+                <!-- Payment form including stripe API -->
                 <form action="charge.php" method="post" id="payment-form">
                 
                 <label for="customer_name">Name</label>

@@ -2,17 +2,14 @@
 
 class getAPi{
 
+    //function to get information from the specific api. 
     public function getApi(){
-
-        //array_shift($uploadCSV);
-
-       
-        
+  
+        //Api url 
         $url = 'https://5ce8007d9f2c390014dba45e.mockapi.io/books/';
 
-                // Create a curl instance.
-                // Create a curl instance.
-       
+              
+        // Create a curl instance.
         $ch = curl_init($url);
         // Setup curl options
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

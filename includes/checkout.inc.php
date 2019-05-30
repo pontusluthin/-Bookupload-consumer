@@ -6,7 +6,7 @@ class orderBooks{
 
 
 
-
+//function to show the information in the uploaded file isbn.csv, information is showed on checkout page.  
     public function showFileInfo(){
         $files = 'uploaded_files/isbn.csv'; 
 
@@ -28,51 +28,5 @@ class orderBooks{
         
                         
     }
-
-    public function download(){
-
-            $file_name = 'orders/new_books.csv';
-            $file_to_write = fopen($file_name , 'w');
-
-            $showfile = true; 
-
-            foreach($books as $book){
-                  //  $book = fill_book($book[0]);
-
-                    $showfile = $showfile && fputcsv($file_to_write,$book);
-            }
-
-            fclose($file_to_write);
-
-            if($showfile){
-                echo '<a href="' . $file_name . '">New CSV</aZ';
-
-        }
-
-
-    }
-
-    
-        public function fill_book($isbn){
-
-                foreach ($data as $val) {
-                if ($val !== null) {
-                        $book = [];
-                        $book[0] = $data[0];
-                        $book[2] = $data[1];
-                        $book[3] = $data[2];
-                        return $book;
-                }
-                }
-
-                
-
-        }
-        
-
-    
-
- 
-
 
 }

@@ -12,6 +12,7 @@
 
         <h1>Book Consumer System</h1>
 
+        <!-- Startpage for a user with a simple button to begin -->
         <section>
                 <a href="uploadpage.php"><button type="button" class="btn btn-lg">Lets go and upload</button>
         </section>
