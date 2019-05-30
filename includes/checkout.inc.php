@@ -1,16 +1,13 @@
 <?php 
 
+
 class orderBooks{
 
 
-   /* public function __construct()
-    {
-        $db = new DBConnect();
-        $this->db = $db->pdo;
-    }*/
 
 
-    public function upload(){
+
+    public function showFileInfo(){
         $files = 'uploaded_files/isbn.csv'; 
 
                         $books = []; //Nested array to hold all the arrays

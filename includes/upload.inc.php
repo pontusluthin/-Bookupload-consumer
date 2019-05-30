@@ -12,23 +12,6 @@ class upload{
             $this->db = $db->pdo;
         }
 
-
-        //Function to store the file in the database 
-        public function uploadFileToDatabase($csv_file) 
-        {
-            $statement = $this->db->prepare("INSERT INTO files(csv_file) VALUES (:csv_file)");
-
-            $statement->bindValue(':csv_file', $csv_file);
-
-            if ($statement->execute()) {
-                echo ("File uploaded");
-                header('location: checkoutpage.php');
-            } else {
-                echo ("Could not upload file correctly");
-            }
-        }
-
-        //Function to upload the file with set name isbn.csv to uploaded_files foder
         public function uploadFileToFolder(){
 
             if(isset($_FILES)){
@@ -48,6 +31,24 @@ class upload{
                 
         }
         }
+
+        //Function to store the file in the database 
+        public function uploadFileToDatabase($csv_file) 
+        {
+            $statement = $this->db->prepare("INSERT INTO files(csv_file) VALUES (:csv_file)");
+
+            $statement->bindValue(':csv_file', $csv_file);
+
+            if ($statement->execute()) {
+                echo ("File uploaded");
+                header('location: checkoutpage.php');
+            } else {
+                echo ("Could not upload file correctly");
+            }
+        }
+
+        //Function to upload the file with set name isbn.csv to uploaded_files foder
+     
 
 
 
