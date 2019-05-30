@@ -13,7 +13,8 @@ class upload{
         }
 
 
-        public function uploadFileToDatabase($file_insert) 
+        //Function to store the file in the database 
+        public function uploadFileToDatabase($csv_file) 
         {
             $statement = $this->db->prepare("INSERT INTO files(csv_file) VALUES ('$csv_file')");
             if ($statement->execute()) {
@@ -24,11 +25,13 @@ class upload{
             }
         }
 
+        //Function to upload the file with set name isbn.csv to uploaded_files foder
         public function uploadFileToFolder(){
 
             if(isset($_FILES)){
                 $check = true; 
 
+                //@ is to prevent the webpage showing an error message before the file is uploaded 
                 if(@$_FILES['csv_file']['type'] !== 'text/csv'){
                         $check = false; 
                 }

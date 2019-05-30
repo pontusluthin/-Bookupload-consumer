@@ -11,7 +11,7 @@ class orderBooks{
 
 
     public function upload(){
-        $files = 'uploaded_files/isbn.csv'; 
+        /*$files = 'uploaded_files/isbn.csv'; 
 
                         $books = []; //Nested array to hold all the arrays
 
@@ -26,7 +26,7 @@ class orderBooks{
 
                                 //Close the file 
                                 //fclose($file_handle);
-            }         
+            }        */ 
             
         
                         
