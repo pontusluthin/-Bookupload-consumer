@@ -12,26 +12,82 @@ $api = new getAPi();
 $files = new orderBooks(); 
 
 //retrieve the api function from api class 
-$getApi = $api->getApi(); 
+$getApiBooks = $api->getApiBooks(); 
+$getApiAuthors = $api->getApiAuthors();
+//var_dump($getApiBooks);
+//echo $getApiBooks;
+//echo $getApiAuthors;
+//$data = file_get_contents($getApi);
+$json_decode_books = json_decode($getApiBooks);
+$json_decode_authors = json_decode($getApiAuthors);
+$isbn = $json_decode_books[0]->isbn; //hämtar ut isbn numret ur första arrayen
+echo $isbn . "<br>"; 
+$title = $json_decode_books[0]->title;
+echo $title . "<br>"; 
+$authorFirst = $json_decode_authors[0]->firstName;
+$authorLast = $json_decode_authors[0]->lastName; 
+echo $authorFirst . "&nbsp;"; 
+echo $authorLast;
 
+$book_array = array("$isbn", "$title","$authorFirst","$authorLast");
+ 
+
+
+//$isbn = $json_decode_books->isbn;
+//print_r ($json_decode_books);
+
+/*$items = array(); 
+
+ foreach ($json_decode_books as $character) {
+                    $isbn = $character->isbn;
+                   // $items[] = $isbn;    
+                    echo $isbn . '<br>';    
+}*/
+
+
+
+/*foreach ($json_decode_books as $character) {
+        $title = $character->title;
+        $items[] = $title;    
+        
+        echo $title . '<br>'; 
+       
+        
+}
+
+
+foreach ($json_decode_authors as $character) {
+        $firstName = $character->firstName ;
+        $lastName = $character->lastName;  
+        $items[] = $firstName .'&nbsp;' . $lastName;
+      
+
+        echo $firstName . '&nbsp;'; 
+        echo $lastName . '<br>'; 
+}*/
+
+//print_r($items);
 //retrieve the show file info function from orderBooks class. 
 $books = $files->showFileInfo();
 
 if ($books) {
-
+        $filename = 'new_books.csv';
+        $file_to_write = fopen("orders/" . $filename, 'w');
         //bolean set 
         $ok = true;
-
+        
         //set the fields for new file
-        $fields = ['ISBN','Book Title','Author'];
+        //$books = ['ISBN','Book Title','Author'];
 
         //selects the har coded file to open and write, in this case in folder orders and file new_books.csv
-        $file_to_write = fopen('orders/new_books.csv', 'w');
+       
     
-        
+        //$readNewBooks = $api->fill_book(); 
         //foreach that tells with fill_book function, what to write. 
         foreach ($books as $book) {
-           $book = fill_book($book[0]);
+        
+          $book = $readNewBooks = $api->fill_book($book_array); 
+          // var_dump($book);
             $ok = $ok && fputcsv($file_to_write, $book);
         }
     
@@ -46,16 +102,8 @@ if ($books) {
     }
     
     
-    //function to add new hard coded test values to new_books.csv
-    function fill_book($isbn)
-    {
-        $book = [];
-        $book[0] = $isbn;
-        $book[1] = 'Harry Potter';
-        $book[2] = 'J K Rowling';
-    
-        return $book;
-    }
+       
+   
 
     //Convert information from file and show the information on the recieve page below in table
     $newPath = 'orders/new_books.csv';
