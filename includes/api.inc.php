@@ -3,41 +3,21 @@
 class getAPi{
 
     //function to get information from the specific api. 
-    public function getApiBooks(){
+    public function getBookInfo(){
+
+       
   
         //Api url 
         $url = 'https://5ce8007d9f2c390014dba45e.mockapi.io/books/';
 
        
         $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_URL, $url.$id = "9789178034482");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
         $data = curl_exec($ch);
         curl_close($ch);
-
-        /*$json_decode_books = json_decode($data);
-
-        foreach ($json_decode_books as $character) {
-            $isbn = $character->isbn ;
-            $title = $character->title;
-            
-            echo $isbn . '<br>';      
-}*/
-
         
-
         return $data;
-
-              
-        // Create a curl instance.
-        /*$ch = curl_init($url);
-        // Setup curl options
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        // Perform the request and get the response.
-        $response = curl_exec($ch);
-        curl_close($ch);
-
-        return $response;*/
 
     }
 

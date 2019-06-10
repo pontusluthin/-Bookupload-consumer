@@ -31,13 +31,16 @@ $api = new getAPi();
 $files = new orderBooks(); 
 
 //retrieve the api function from api class 
-$getApiBooks = $api->getApiBooks(); 
+$getApiBooks = $api->getBokInfo(); 
 $getApiAuthors = $api->getApiAuthors();
 //var_dump($getApiBooks);
 //echo $getApiBooks;
 //echo $getApiAuthors;
 //$data = file_get_contents($getApi);
 $json_decode_books = json_decode($getApiBooks);
+
+var_dump();
+
 $json_decode_authors = json_decode($getApiAuthors);
 
 foreach($json_decode_books as $book) {
