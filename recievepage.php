@@ -41,7 +41,7 @@ $json_decode_books = json_decode($getApiBooks);
 $json_decode_authors = json_decode($getApiAuthors);
 
 foreach($json_decode_books as $book) {
-        var_dump($book);
+        //var_dump($book);
 }
 
 $isbn = $json_decode_books[0]->isbn; //hämtar ut isbn numret ur första arrayen
@@ -55,7 +55,7 @@ array_push($book_array, $isbn, $title, $authorFirst, $authorLast);
 
 $allBooks = array($book_array); 
 
-print_r($allBooks);
+//print_r($allBooks);
  
 
 
@@ -66,7 +66,7 @@ print_r($allBooks);
  foreach ($book_array as $character) {
                    
                    $allBooks[] = $character;   
-                   echo $character;  
+                  // echo $character;  
                    
 }
 

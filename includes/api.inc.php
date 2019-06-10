@@ -56,7 +56,7 @@ class getAPi{
 
     }
 
-    public function getApiPublisher(){ //$author_id
+    public function getApiPublisher($publisherId){ //$author_id
         $url = 'https://5ce8007d9f2c390014dba45e.mockapi.io/publishers/' . $publisherId; //. $author_id;
 
        
