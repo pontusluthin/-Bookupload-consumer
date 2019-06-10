@@ -32,7 +32,7 @@
                                         <?php
 
                                         //retrieve the class orderBooks and function show file to show the uploaded isb numbers below in a table 
-                                        $books = new orderBooks(); 
+                                        $books = new readBooks(); 
                                         $showIsbn = $books->showFileInfo();
 
                                         // showing isbn numbers. 

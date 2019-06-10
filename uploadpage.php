@@ -4,26 +4,10 @@
 
 require_once 'includes/upload.inc.php';
 
-$upload = new upload(); 
-$uploadFile = $upload->uploadFileToFolder(); 
+        $upload = new upload(); 
+        $uploadFile = $upload->uploadFileToFolder(); 
 
-//If statement to insert the file into the database. 
-if(isset($_POST['submit'])){
-
-        $csv_file = basename($_FILES['csv_file']['name']);;
-
-        move_uploaded_file($_FILES["csv_file"]["tmp_name"], $csv_file);
-
-        $fields = [
-
-        'csv_file' =>$csv_file, 
-
-        ];
     
-       
-        $upload->uploadFileToDatabase($csv_file); 
-
-    }
 
 ?>
 
@@ -51,7 +35,7 @@ if(isset($_POST['submit'])){
         
         
         <!-- Link to go back one step on the page -->     
-        <a href="index.php"><button type="button" class="btn btn-lg returnBtn">Go back</button></a> 
+        <a href="index.php"><button type="button" class="btn btn-lg returnBtn">Go back</button></a>  <a href="checkoutpage.php"><button type="button" class="btn btn-lg returnBtn">Next</button></a> 
 
 
     

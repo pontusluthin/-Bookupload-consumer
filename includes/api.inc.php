@@ -17,7 +17,7 @@ class getAPi{
         curl_close($ch);
 
         $obj = json_decode($data);
-        var_dump($obj);
+        //var_dump($obj);
         $result = [];
         foreach($obj as $key => $val) {
             $result[$key] = $val;
@@ -59,7 +59,7 @@ class getAPi{
       //function to add new hard coded test values to new_books.csv
     public function fill_book($data){
 
-        
+
        
         $book = [];
         //$book [] = ["ISBN", "Title", "Author"];
