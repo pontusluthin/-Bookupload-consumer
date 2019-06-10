@@ -151,12 +151,13 @@ $testRead = new readBooks();
 $books = []; //Nested array to hold all the arrays
 
 
-
-if ($file_handle = fopen($files, 'r')){ //'r' stands for only read
-        //Read one line from the csv file, using comma as a separator 
-        while ($data = fgetcsv($file_handle)) { //100 is default value and sets readable lines on max 100 characters
+//If statement to open excisting file with return_result_set funciton
+if ($file_handle = fopen($files, 'r')){ 
+        
+        while ($data = fgetcsv($file_handle)) { 
                 $books[] = $testRead->return_result_set($data[0]);
         } 
+
         //Close the file 
         fclose($file_handle);
         
@@ -170,18 +171,11 @@ if ($books) {
     //bolean set 
     $ok = true;
     
-    //set the fields for new file
-   
-
-    //selects the har coded file to open and write, in this case in folder orders and file new_books.csv
-   
-
-   
     //foreach that tells with fill_book function, what to write. 
     foreach ($books as $book) {
     
       $book = $api->fill_book($book); 
-      // var_dump($book);
+      
         $ok = $ok && fputcsv($file_to_write, $book);
     }
 
@@ -231,6 +225,7 @@ if ($books) {
                                         foreach ($books as $book) {
                                         ?>
                                         <tr>
+                                                <!-- Set the specific index to get the wanted values-->
                                                 <td><?php echo $book[0]?></td>
                                                 <td><?php echo $book[1]?></td>
                                                 <td><?php echo $book[4]?></td>
