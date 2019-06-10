@@ -4,6 +4,25 @@
 include_once 'includes/checkout.inc.php';
 include_once 'includes/api.inc.php';
 
+$files = 'uploaded_files/isbn.csv'; 
+
+$books = []; //Nested array to hold all the arrays
+//$books[] = ['ISBN', 'Book title', 'Author'];
+
+if (@$file_handle = fopen($files, 'r')){ //'r' stands for only read
+
+        //Read one line from the csv file, using comma as a separator 
+        while ($data = fgetcsv($file_handle)) { //100 is default value and sets readable lines on max 100 characters
+                $books[] = $data[0];
+        }
+ 
+        //Close the file 
+        fclose($file_handle);
+} 
+
+foreach($books as $book) {
+        var_dump($book);
+}
 
 //retrieve the api class from api.inc.php
 $api = new getAPi(); 
@@ -20,51 +39,40 @@ $getApiAuthors = $api->getApiAuthors();
 //$data = file_get_contents($getApi);
 $json_decode_books = json_decode($getApiBooks);
 $json_decode_authors = json_decode($getApiAuthors);
+
+foreach($json_decode_books as $book) {
+        var_dump($book);
+}
+
 $isbn = $json_decode_books[0]->isbn; //hämtar ut isbn numret ur första arrayen
-echo $isbn . "<br>"; 
 $title = $json_decode_books[0]->title;
-echo $title . "<br>"; 
 $authorFirst = $json_decode_authors[0]->firstName;
 $authorLast = $json_decode_authors[0]->lastName; 
-echo $authorFirst . "&nbsp;"; 
-echo $authorLast;
 
-$book_array = array("$isbn", "$title","$authorFirst","$authorLast");
+$book_array = array();
+
+array_push($book_array, $isbn, $title, $authorFirst, $authorLast); 
+
+$allBooks = array($book_array); 
+
+print_r($allBooks);
  
 
 
 //$isbn = $json_decode_books->isbn;
 //print_r ($json_decode_books);
 
-/*$items = array(); 
 
- foreach ($json_decode_books as $character) {
-                    $isbn = $character->isbn;
-                   // $items[] = $isbn;    
-                    echo $isbn . '<br>';    
-}*/
-
-
-
-/*foreach ($json_decode_books as $character) {
-        $title = $character->title;
-        $items[] = $title;    
-        
-        echo $title . '<br>'; 
-       
-        
+ foreach ($book_array as $character) {
+                   
+                   $allBooks[] = $character;   
+                   echo $character;  
+                   
 }
 
 
-foreach ($json_decode_authors as $character) {
-        $firstName = $character->firstName ;
-        $lastName = $character->lastName;  
-        $items[] = $firstName .'&nbsp;' . $lastName;
-      
 
-        echo $firstName . '&nbsp;'; 
-        echo $lastName . '<br>'; 
-}*/
+
 
 //print_r($items);
 //retrieve the show file info function from orderBooks class. 
@@ -86,7 +94,7 @@ if ($books) {
         //foreach that tells with fill_book function, what to write. 
         foreach ($books as $book) {
         
-          $book = $readNewBooks = $api->fill_book($book_array); 
+          $book = $readNewBooks = $api->fill_book($allBooks); 
           // var_dump($book);
             $ok = $ok && fputcsv($file_to_write, $book);
         }
@@ -132,7 +140,8 @@ if ($books) {
                                         <tr>
                                                 <th scope="col">ISBN</th>
                                                 <th scope="col">Title</th>
-                                                <th scope="col">Author</th>
+                                                <th scope="col">Author firstname</th>
+                                                <th scope="col">Author lastname</th>
                                         </tr>
                                 </thead>
                                 <tbody>
@@ -147,6 +156,7 @@ if ($books) {
                                                 <td><?php echo $new_books[0]?></td>
                                                 <td><?php echo $new_books[1]?></td>
                                                 <td><?php echo $new_books[2]?></td>
+                                                <td><?php echo $new_books[3]?></td>
                                         </tr>    
                                         <?php }?>
                                         </table>
